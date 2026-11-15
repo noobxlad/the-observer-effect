@@ -6,7 +6,7 @@ url: "https://noobxlad.github.io"         # Set to your GitHub Pages URL, e.g. h
 baseurl: "/the-observer-effect"     # Set if using a project page, e.g. /repo-name
 
 author:
-  name: "Karthik"
+  name: "Noob"
   bio: "Curious mind exploring the intersection of technology and science."
 
 permalink: /articles/:title/
