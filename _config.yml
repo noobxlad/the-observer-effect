@@ -21,7 +21,7 @@ defaults:
     values:
       layout: post
       toc: true
-      image: /assets/images/default-share-card.png
+      image: /assets/images/default-share-card.jpg
   - scope:
       path: ""
       type: "pages"

@@ -33,9 +33,9 @@ image: /assets/images/your-article-share-card.png
 ---
 ```
 
-Each article uses the site’s default Open Graph image when `image` is omitted.
-For the best sharing preview, use a locally hosted 1.91:1 image (for example,
-1200 × 630 px).
+Each article uses the site’s default optimized Open Graph image when `image` is
+omitted. For the best sharing preview, use a locally hosted JPEG with a 1.91:1
+ratio (for example, 1200 × 630 px).
 
 ## Categories
 
