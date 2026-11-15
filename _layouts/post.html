@@ -27,31 +27,45 @@ layout: default
     {% endif %}
   </header>
 
-  {% if page.toc != false %}
-  <div class="toc-wrapper">
-    <button class="toc-toggle" aria-expanded="true" aria-controls="toc">
-      <span class="toc-toggle-label">Table of Contents</span>
-      <svg class="toc-toggle-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
-    <nav id="toc" aria-label="Table of contents"></nav>
-  </div>
-  {% endif %}
+  <div class="post-layout">
+    <div class="post-content">
+      {{ content }}
 
-  <div class="post-content">
-    {{ content }}
-  </div>
-
-  {% if page.tags.size > 0 %}
-  <footer class="post-footer">
-    <div class="post-tags">
-      {% for tag in page.tags %}
-        <span class="tag">{{ tag }}</span>
-      {% endfor %}
+      {% if page.tags.size > 0 %}
+      <footer class="post-footer">
+        <div class="post-tags">
+          {% for tag in page.tags %}
+            <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+      </footer>
+      {% endif %}
     </div>
-  </footer>
-  {% endif %}
+
+    {% if page.toc != false %}
+    <aside class="post-sidebar" aria-label="Table of contents">
+      <div class="toc-wrapper">
+        <button class="toc-toggle" aria-expanded="false" aria-controls="toc">
+          <span class="toc-toggle-label">
+            <svg class="toc-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            Table of Contents
+          </span>
+          <svg class="toc-toggle-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="toc-header-desktop">
+          <span class="toc-desktop-title">On this page</span>
+        </div>
+        <nav id="toc" aria-label="Table of contents"></nav>
+      </div>
+    </aside>
+    {% endif %}
+  </div>
 </article>
 
 <script src="{{ '/assets/js/toc.js' | relative_url }}"></script>
