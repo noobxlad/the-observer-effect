@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<div class="category-page">
+  <header class="category-header">
+    <h1 class="category-title">{{ page.category_name }}</h1>
+    <p class="category-desc">{{ page.description }}</p>
+  </header>
+
+  <div class="posts-list">
+    {% assign cat_posts = site.posts | where_exp: "post", "post.categories contains page.category_name" %}
+    {% if cat_posts.size > 0 %}
+      {% for post in cat_posts %}
+        {% include post-card.html post=post %}
+      {% endfor %}
+    {% else %}
+      <div class="empty-state">
+        <p>No articles in this category yet. Check back soon!</p>
+      </div>
+    {% endif %}
+  </div>
+</div>

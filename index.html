@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+<div class="home">
+  <!-- Hero -->
+  <section class="hero">
+    <h1 class="hero-title">
+      The <span class="hero-accent">Observer</span> Effect
+    </h1>
+    <p class="hero-tagline">
+      Observing the world through the lens of curiosity — exploring tech,
+      science, and everything in between.
+    </p>
+  </section>
+
+  <!-- Category pills -->
+  <nav class="categories-nav" aria-label="Browse categories">
+    <a href="{{ '/categories/tech/' | relative_url }}" class="category-pill">⚡ Tech</a>
+    <a href="{{ '/categories/science/' | relative_url }}" class="category-pill">🔬 Science</a>
+    <a href="{{ '/categories/tutorials/' | relative_url }}" class="category-pill">📘 Tutorials</a>
+    <a href="{{ '/categories/opinion/' | relative_url }}" class="category-pill">💬 Opinion</a>
+  </nav>
+
+  <!-- Recent articles -->
+  <section>
+    <div class="section-header">
+      <h2 class="section-title">Recent Articles</h2>
+    </div>
+
+    <div class="posts-list">
+      {% if site.posts.size > 0 %}
+        {% for post in site.posts limit:10 %}
+          {% include post-card.html post=post %}
+        {% endfor %}
+      {% else %}
+        <div class="empty-state">
+          <p>No articles published yet. Stay tuned — something is coming!</p>
+        </div>
+      {% endif %}
+    </div>
+  </section>
+</div>

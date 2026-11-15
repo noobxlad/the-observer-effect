@@ -1,0 +1,57 @@
+---
+layout: default
+---
+
+<article class="post">
+  <header class="post-header">
+    <div class="post-meta">
+      {% if page.categories.size > 0 %}
+        <a href="{{ '/categories/' | append: page.categories[0] | downcase | append: '/' | relative_url }}" class="post-category-badge">
+          {{ page.categories[0] }}
+        </a>
+      {% endif %}
+      <span class="post-meta-sep">·</span>
+      <time datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: "%B %-d, %Y" }}
+      </time>
+      <span class="post-meta-sep">·</span>
+      <span class="post-reading-time">
+        {% assign words = content | number_of_words %}
+        {% assign minutes = words | divided_by: 200 %}
+        {% if minutes < 1 %}1{% else %}{{ minutes }}{% endif %} min read
+      </span>
+    </div>
+    <h1 class="post-title">{{ page.title }}</h1>
+    {% if page.excerpt %}
+      <p class="post-subtitle">{{ page.excerpt | strip_html }}</p>
+    {% endif %}
+  </header>
+
+  {% if page.toc != false %}
+  <div class="toc-wrapper">
+    <button class="toc-toggle" aria-expanded="true" aria-controls="toc">
+      <span class="toc-toggle-label">Table of Contents</span>
+      <svg class="toc-toggle-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <nav id="toc" aria-label="Table of contents"></nav>
+  </div>
+  {% endif %}
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  {% if page.tags.size > 0 %}
+  <footer class="post-footer">
+    <div class="post-tags">
+      {% for tag in page.tags %}
+        <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+  </footer>
+  {% endif %}
+</article>
+
+<script src="{{ '/assets/js/toc.js' | relative_url }}"></script>

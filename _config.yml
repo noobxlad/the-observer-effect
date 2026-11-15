@@ -1,0 +1,46 @@
+title: The Observer Effect
+description: >-
+  Observing the world through the lens of curiosity —
+  articles on tech, science, and everything in between.
+url: ""         # Set to your GitHub Pages URL, e.g. https://username.github.io
+baseurl: ""     # Set if using a project page, e.g. /repo-name
+
+author:
+  name: "Karthik"
+  bio: "Curious mind exploring the intersection of technology and science."
+
+permalink: /articles/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      toc: true
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: default
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  auto_ids: true
+  toc_levels: "2..3"
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Category configuration
+collections_dir: ""
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - vendor
